@@ -1,0 +1,31 @@
+button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #313131;
+    color: white;
+    font-size: 32px;
+}
+
+.colspan2 {
+    width: 200px;
+    border-radius: 25px;
+}
+
+.rowspan2 {
+    height: 200px;
+    border-radius: 25px;
+    
+}
+
+.makegray {
+    background-color: #a0a0a0;
+}
+
+.makeorange {
+    background-color: #f69906;
+}
+
+button:active {
+    background-color: cadetblue;
+}
