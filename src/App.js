@@ -1,7 +1,7 @@
 import Keyboard from "./Keyboard";
 import Screen from "./Screen";
 import "./App.css";
-import {useState} from "react"
+import {useState, useEffect} from "react"
 
 function App() {
   const [sentence, setSentence] = useState("");
@@ -30,7 +30,8 @@ function App() {
 
   const makeResult = (sentence) => {
     try{
-      setResult(eval(correctSentence()));
+
+      setResult(eval(sentence));
     }
     catch(err){
       setResult("Syntax Error!")
@@ -46,17 +47,21 @@ function App() {
   }
 
   const equalClicked = () => {
-    return makeResult(sentence)
+    return makeResult(correctSentence());
   }
 
   const updateSentence = (buttonValue) => {
     setSentence(sentence + buttonValue);
-    updateResult(isOperator(buttonValue))
+
   };
   
   const clearSentence = () => {
     setSentence("");
   }
+
+  useEffect(() => {
+    updateResult(isOperator(sentence[sentence.length - 1]));
+  }, [sentence])
 
   return (
     <div className="App">
